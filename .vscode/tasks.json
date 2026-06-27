@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Qt6 Build (qmake)",
+      "type": "shell",
+      "command": "C:\\Qt\\6.10.2\\mingw_64\\bin\\qmake.exe",
+      "args": [
+        "ATM_Project2.pro",
+        "-o",
+        "Makefile"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Qt6 Make (compile)",
+      "type": "shell",
+      "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\mingw32-make.exe",
+      "args": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "Qt6 Build (qmake)"
+    },
+    {
+      "label": "Qt6 Clean",
+      "type": "shell",
+      "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\mingw32-make.exe",
+      "args": [
+        "clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Qt6 Build & Run",
+      "type": "shell",
+      "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\mingw32-make.exe",
+      "args": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": "Qt6 Build (qmake)",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    }
+  ]
+}
